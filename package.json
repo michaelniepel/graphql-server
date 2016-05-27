@@ -30,6 +30,7 @@
     "graphql-tools": "^0.3.6",
     "lodash": "^4.13.1",
     "mongoose": "^4.4.19",
+    "request-promise": "^3.0.0",
     "sequelize": "^3.23.3",
     "sqlite": "^2.0.2"
   },

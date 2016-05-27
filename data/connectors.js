@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import Mongoose from 'mongoose';
 import casual from 'casual';
+import rp from 'request-promise';
 import _ from 'lodash';
 
 //sql
@@ -32,6 +33,16 @@ const View = Mongoose.model('views', ViewSchema);
 AuthorModel.hasMany(PostModel);
 PostModel.belongsTo(AuthorModel);
 
+const FortuneCookie = {
+  getOne() {
+    return rp('http://fortunecookieapi.com/v1/cookie')
+      .then((res) => JSON.parse(res))
+      .then((res) => {
+        return res[0].fortune.message;
+      });
+  },
+};
+
 // create mock data with a seed, so we always get the same
 casual.seed(123);
 db.sync({ force: true }).then(() => {
@@ -57,4 +68,4 @@ db.sync({ force: true }).then(() => {
 const Author = db.models.author;
 const Post = db.models.post;
 
-export { Author, Post, View };
+export { Author, Post, View, FortuneCookie };
