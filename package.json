@@ -27,7 +27,11 @@
   "homepage": "https://github.com/apollostack/apollo-starter-kit#readme",
   "dependencies": {
     "express": "4.13.4",
-    "graphql-tools": "^0.3.6"
+    "graphql-tools": "^0.3.6",
+    "lodash": "^4.13.1",
+    "mongoose": "^4.4.19",
+    "sequelize": "^3.23.3",
+    "sqlite": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "6.5.1",
